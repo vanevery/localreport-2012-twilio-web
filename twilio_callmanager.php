@@ -1,16 +1,15 @@
 <?PHP
 include "Services/Twilio.php";
 
-$accountSid = "AC91650cb6478772fb52fef4a6d96ed5dc"; 
-$authToken = "6ea6ee59f2d8968a014e3794e0ca4f80"; 
-
+// Gives us a $accountSid, $authToken and $appSid
+include('twilio_include.inc'); 
 
 if (isset($_REQUEST['send'])) {
 
 	$sclient = new Services_Twilio($accountSid, $authToken);
 	$sid = $_REQUEST['send'];
 	$scall = $sclient->account->calls->get($sid);
-	$scall->update(array('Url' => 'http://23.23.89.21:8080/twilio_conference.php', 'Method' => 'POST'));
+	$scall->update(array('Url' => 'http://live.whitmanlocalreport.net:8080/twilio/twilio_conference.php', 'Method' => 'POST'));
 
 } else if (isset($_REQUEST['hangup'])) {
 

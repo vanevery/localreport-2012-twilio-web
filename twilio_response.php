@@ -2,10 +2,24 @@
 header('Content-type: text/xml');
 echo '<?xml version="1.0" encoding="UTF-8"?>';
 
-//$_REQUEST['From']
+if ($_REQUEST['From'] == "client:whitmanmonitor") {
 ?>
-<Response>
-	<Say>Welcome to Twilio Client!</Say>
-	<Play loop="100">http://demo.twilio.com/hellomonkey/monkey.mp3</Play>
-</Response>
-
+	<Response>
+		<Say>Welcome to Local Report Call Monitor</Say>
+		<Dial>
+			<Conference muted="true" beep="true">liveconference</Conference>
+		</Dial>
+	</Response>
+<?php
+}
+else
+{
+?>
+	<Response>
+		<Say>Welcome to Local Report 2012</Say>
+		<Say>Please enjoy the music while you wait to be connect to the performance</Say>
+		<Play loop="5">http://demo.twilio.com/hellomonkey/monkey.mp3</Play>
+	</Response>
+<?php
+}
+?>

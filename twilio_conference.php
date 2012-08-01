@@ -3,8 +3,8 @@
     echo '<?xml version="1.0" encoding="UTF-8"?>';
 ?>
 <Response>
-	<Say>Joining a conference room<Say>
-	<Dial>
-		<Conference>My Room</Conference>
+	<Say>You are now live, deliver your report</Say>
+	<Dial action="http://live.whitmanlocalreport.net:8080/twilio/twilio_conference_entered.php" record="true">
+		<Conference>liveconference</Conference>
 	</Dial>
 </Response>
