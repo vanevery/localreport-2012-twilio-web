@@ -5,6 +5,6 @@
 <Response>
 	<Say>You are now live, deliver your report</Say>
 	<Dial action="http://live.whitmanlocalreport.net:8080/twilio/twilio_conference_entered.php" record="true">
-		<Conference>liveconference</Conference>
+		<Conference waitUrl="http://live.whitmanlocalreport.net:8080/twilio/in_c.mp3" beep="true">liveconference</Conference>
 	</Dial>
 </Response>

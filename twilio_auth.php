@@ -3,10 +3,18 @@
 	include "Services/Twilio/Capability.php";
 
 	// Gives us a $accountSid, $authToken and $appSid
-	include('twilio_include.inc'); 
+	//include('twilio_include.inc'); 
+
+// AccountSid and AuthToken can be found in your account dashboard
+$accountSid = "xxxxxx"; 
+$authToken = "xxxxxx"; 
+ 
+// The app outgoing connections will use:
+$appSid = "xxxxxx"; 
+	
 	 
 	// The client name for incoming connections:
-	$clientName = "whitmanphones"; 
+	$clientName = "twiliophone"; 
 	
 	$capability = new Services_Twilio_Capability($accountSid, $authToken);
 	 
