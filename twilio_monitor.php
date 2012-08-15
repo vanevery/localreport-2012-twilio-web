@@ -45,25 +45,39 @@ src="//static.twilio.com/libs/twiliojs/1.0/twilio.min.js"></script>
  
 			Twilio.Device.connect(function (conn) {
 				$("#log").text("Successfully established call");
+				callInProgress = true;
 			});
  
 			Twilio.Device.disconnect(function (conn) {
 				$("#log").text("Call ended");
+				callInProgress = false;
 			});
  
-		function hangup() {
-			Twilio.Device.disconnectAll();
-		}
-      
-		function call() {
-			Twilio.Device.connect();
-		}
+			function hangup() {
+				Twilio.Device.disconnectAll();
+				$("#callbutton").txt("Call");
+			}
+		  
+			function call() {
+				Twilio.Device.connect();
+				$("#callbutton").txt("Hangup");			
+			}
+			
+			var callInProgress = false;
+			function callButtonClicked() {
+				if (callInProgress) {
+					hangup();
+				} else {
+					call();
+				}
+			}
     </script>
 	</head>
 	<body>
-		<button class="call" onclick="call();">Call</button>
-	    <button class="hangup" onclick="hangup();">Hangup</button>
-	    <div id="log">Loading pigeons...</div>
+		<button id="callbutton" onclick="callButtonClicked();">Call</button>
+		<!--<button class="call" onclick="call();">Call</button>
+	    <button class="hangup" onclick="hangup();">Hangup</button>-->
+	    <div id="log">Loading Local Report...</div>
 	</body>
 </html>
 		
